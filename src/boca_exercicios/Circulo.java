@@ -1,5 +1,5 @@
-package boca_exercicios;
 
+package boca_exercicios;
 
 import java.util.Scanner;
 
@@ -29,25 +29,46 @@ public class Circulo {
 
         int n = sc.nextInt();
 
-        exibir();
-
 
         for (int i = 1; i <= n ; i++) {
             inserir(i);
 
         }
 
-        exibir();
+
 
         int x = sc.nextInt();
-        int contagem = 2;
+        int contagem = 1;
+
+        boolean morto = false;
+        int numMorto = 0;
 
         while (inicio.prox != inicio) {
 
+            inicio = inicio.prox;
+            inicio.ant.prox = inicio.prox;
+            inicio.prox.ant = inicio.ant;
+            if(x == contagem && !morto ) {
+                numMorto = inicio.valor;
+                morto = true;
+            }
+            contagem ++;
+            inicio = inicio.prox;
+
+
+
+
+
         }
+        System.out.println("Morte "+x+": "+ numMorto);
+
+        System.out.println("Sobrevivente: " + inicio.valor);
+
+
 
 
     }
+
 
     static void inserir(int x) {
         No novo = new No(x);
@@ -70,20 +91,14 @@ public class Circulo {
         } else {
             No temp = inicio;
 
-            System.out.print(temp.valor + " ");
+            System.out.print(temp.valor);
             temp = temp.prox;
 
             while (temp != inicio) {
-                System.out.print(temp.valor + " ");
+                System.out.print(temp.valor);
                 temp = temp.prox;
 
             }
         }
     }
-   }
-
-
-
-
-
-
+}
