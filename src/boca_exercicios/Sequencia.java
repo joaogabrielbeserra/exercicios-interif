@@ -1,5 +1,6 @@
 package boca_exercicios;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Sequencia {
@@ -10,17 +11,31 @@ public class Sequencia {
         int n = sc.nextInt();
 
 
-        int[] vetor = new int[n];
+        HashMap<Integer, Integer> s = new HashMap<>();
 
-        for (int i = 0; i<n; i++) {
-            int numero = sc.nextInt();
-            vetor[i] = numero;
+        int sn = 0;
+        for(int i = 1; i <= n; i++) {
+            sn = sc.nextInt();
+            if(!(s.containsKey(sn))) {
+                s.put(sn, 1);
+            } else {
+                s.put(sn, s.get(sn) + 1);
+            }
         }
 
-        for (int i = 0; i<n; i++) {
-            System.out.println(vetor[i]);
+        if (k%n == 0) {
+            int valorAbsoluto = k/n;
+            int count = 1;
+            while (count <= s.size()){
+                if(s.get(1) == valorAbsoluto) {
 
+                }
+            }
         }
+
+
+
+        System.out.println(s.toString());
 
 
     }

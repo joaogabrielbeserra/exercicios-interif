@@ -1,4 +1,4 @@
-package boca_exercicios;
+
 
 import java.util.Scanner;
 
@@ -6,18 +6,28 @@ public class Carta {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String entrada = sc.nextLine();
-        String[][] matriz = new String[8][8];
+     String entrada = sc.next();
 
-
-        if(entrada.length() % 4 != 0) {
-            System.out.println("invalida");
-        } else {
-            for (int i = 0; i <8 ; i++){
-                for (int j = 0; i<8; j ++){
-
-                }
+        int l = entrada.length();
+        int nmatriz = 0;
+        for(int i = 1; i <= 8 ; i++) {
+            if(i*i == l){
+                nmatriz = i;
+                break;
             }
+        }
+
+        if(nmatriz == 0) {
+            System.out.println("invalido");
+        } else {
+            for (int b = 0; b<=entrada.length(); b+=nmatriz) {
+                System.out.print(entrada.charAt(b));
+                b++;
+            }
+        }
+
+
+
 
         }
 
@@ -27,4 +37,4 @@ public class Carta {
 
 
     }
-}
+
